@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+set -e
+set -u
+set -x
+export DEBIAN_FRONTEND=noninteractive
+
+git config --global user.email "root@localhost"
+git config --global user.name "root"
+
+## packages sorted alphabeticaly
+##
+packages=""
+packages="${packages} composer"
+packages="${packages} php-bz2"
+packages="${packages} php-cli"
+packages="${packages} php-fdomdocument"
+packages="${packages} php-fpm"
+packages="${packages} php-json"
+packages="${packages} php-mysql"
+packages="${packages} php-yaml"
+packages="${packages} php-zip"
+
+## install packages
+##
+apt-get install -y --no-install-recommends --auto-remove --purge ${packages}

@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+mkdir -p /run/php || true
+mkdir -p /var/www/html/web || true
+chown www-data: -R /var/www
+
+exec /usr/sbin/php-fpm7.0 --force-stderr --nodaemonize
